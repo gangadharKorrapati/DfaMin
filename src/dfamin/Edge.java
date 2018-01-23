@@ -25,23 +25,39 @@ package dfamin;
 
 /**
  *
- * @author "gangadhar"
+ * @author "gangadhar";
  */
-public class DfaMin {
+public class Edge {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private final int fromState;
+    private final int toState;
+    private final char transVal;
 
-        Nfa nfa = new Nfa("abc*d*abcabcabcd*");            
-        nfa.display();
-        Dfa dfa = new Dfa(nfa);
-        dfa.display();
-        Dfa min=dfa.minimize();
-        min.display();
-
+    public Edge(int fs, char t, int ts) {
+        fromState = fs;
+        transVal = t;
+        toState = ts;
     }
 
+    public Edge(int fs, int ts) {
+        fromState = fs;
+        transVal = 'e';
+        toState = ts;
+    }
+
+    public int getFromState() {
+        return fromState;
+    }
+
+    public int getToState() {
+        return toState;
+    }
+
+    public char getTransVal() {
+        return transVal;
+    }
+
+    public void display() {
+        System.out.println("\nFrom State:" + fromState + "\tTransition Value:" + transVal + "\tTo State:" + toState);
+    }
 }
